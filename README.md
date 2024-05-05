@@ -5,7 +5,7 @@ Discord HTML Transcripts is a node.js module (recode on JDA) to generate nice lo
 
 **This module is designed to work with [JDA](https://github.com/DV8FromTheWorld/JDA).**
 
-HTML Template stolen from [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter) and this is a Fork from [Ryzeon/discord-html-transcripts](https://github.com/Ryzeon/discord-html-transcripts) with the difference that it's compiled for the corretto11 Version and an older Version of JDA [5.0.0-alpha.20](https://mvnrepository.com/artifact/net.dv8tion/JDA/5.0.0-alpha.20).
+HTML Template stolen from [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter) and this is a Fork from [Ryzeon/discord-html-transcripts](https://github.com/Ryzeon/discord-html-transcripts) with the difference that it's compiled for the corretto11 Version and an older Version of JDA ([5.0.0-alpha.20](https://mvnrepository.com/artifact/net.dv8tion/JDA/5.0.0-alpha.20)).
 
 ## Installation
 
