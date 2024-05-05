@@ -22,7 +22,7 @@ HTML Template stolen from [DiscordChatExporter](https://github.com/Tyrrrz/Discor
 <dependency>
     <groupId>com.github.NoPro200</groupId>
     <artifactId>discord-html-transcript-corretto11-jda</artifactId>
-    <version>1.0</version>
+    <version>TAG</version>
 </dependency>
 ```
 
