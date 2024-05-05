@@ -26,7 +26,7 @@ HTML-Vorlage gestohlen von [DiscordChatExporter](https://github.com/Tyrrrz/Disco
 </dependency>
 ```
 
-## Beispielsergebnis
+## Beispielergebnis
 ![output](https://img.derock.dev/5f5q0a.png)
 
 ## Benutzung
