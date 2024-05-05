@@ -1,5 +1,5 @@
 # Discord (JDA) HTML Transcripts
-[![](https://jitpack.io/v/Ryzeon/discord-html-transcripts.svg)](https://jitpack.io/#Ryzeon/discord-html-transcripts)
+[![](https://jitpack.io/v/NoPro200/discord-html-transcript-corretto11-jda.svg)](https://jitpack.io/#NoPro200/discord-html-transcript-corretto11-jda)
 
 Discord HTML Transcripts is a node.js module (recode on JDA) to generate nice looking HTML transcripts. Processes discord markdown like **bold**, *italics*, ~~strikethroughs~~, and more. Nicely formats attachments and embeds. Built in XSS protection, preventing users from inserting html tags. 
 
