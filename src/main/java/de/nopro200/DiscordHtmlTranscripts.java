@@ -6,9 +6,12 @@ import de.nopro200.utils.format.impl.ImageFormat;
 import de.nopro200.utils.format.impl.VideoFormat;
 import kotlin.text.Charsets;
 import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.entities.channel.concrete.PrivateChannel;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.channel.middleman.GuildChannel;
 import net.dv8tion.jda.api.entities.channel.middleman.GuildMessageChannel;
 import net.dv8tion.jda.api.utils.FileUpload;
+import org.apache.commons.io.FileUtils;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,6 +21,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.Comparator;
@@ -352,6 +356,28 @@ public class DiscordHtmlTranscripts {
         return lines.toString();
     }
 
+    public String saveHtmlFile(TextChannel textChannel, String path) {
+        DiscordHtmlTranscripts transcript = DiscordHtmlTranscripts.getInstance();
+        try {
+            textChannel.sendFiles(transcript.createTranscript(textChannel)).queue();
+
+            File file = new File(path);
+            if (file.isDirectory()) {
+                if (path.toLowerCase().endsWith(".html")) {
+                    FileUtils.writeStringToFile(file, transcript.fileUploadToFileContent(transcript.createTranscript(textChannel)), String.valueOf(StandardCharsets.UTF_8));
+                    return "Success (Saved to \"" + path + "\")";
+                } else {
+                    return "Err: Invaild File! It should end with .html!";
+                }
+            } else {
+                return "Err: Invaild File Path!";
+            }
+
+        } catch (IOException e) {
+            return "Err: " + e.getMessage();
+        }
+    }
+
     public InputStream generateFromMessages(Collection<Message> messages) throws IOException {
         InputStream htmlTemplate = findFile();
         if (messages.isEmpty()) {
@@ -366,7 +392,7 @@ public class DiscordHtmlTranscripts {
         document.getElementsByClass("preamble__guild-icon").first().attr("src", channel.getGuild().getIconUrl()); // set guild icon
 
         document.getElementById("transcriptTitle").text("#" + channel.getName() + " | " + messages.size() + " Nachrichten"); // set tit
-        metaTag.attr("content", "Transcript von dem Channel" + channel.getName());
+        metaTag.attr("content", "Transcript von dem Channel " + channel.getName());
         document.getElementById("guildname").text(channel.getGuild().getName()); // set guild name
         document.getElementById("ticketname").text("#" + channel.getName()); // set channel name
 
