@@ -52,8 +52,35 @@ try {
 }
 ```
 
-
-
+### You Also can save the HTML File by simply write
+```java
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+try {
+	transcripts.saveHtmlFile(textchannel, "test.html");
+} catch (IOException e) {
+	throw new RuntimeException(e);
+}
+```
+It also returns the FileUpload so you can easely can send it
+```java
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+try {
+	FileUpload testFile = transcripts.saveHtmlFile(textchannel, "test.html");
+        textchannel.sendFiles(testFile).queue();
+} catch (IOException e) {
+	throw new RuntimeException(e);
+}
+```
+### You Also can convert the FileUpload in a String by
+```java
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+try {
+	FileUpload testFile = testChannel.saveHtmlFile(textchannel, "test.html");
+        String htmlString = transcripts.fileUploadToFileContent(testFile);
+} catch (IOException e) {
+	throw new RuntimeException(e);
+}
+```
 
 
 
@@ -108,6 +135,36 @@ transcript.generateFromMessages(messages); // return to InputStream
 DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
 try {
 	testChannel.sendFiles(transcripts.getTranscript(testChannel, "test.html")).queue();
+} catch (IOException e) {
+	throw new RuntimeException(e);
+}
+```
+
+### Sie können die HTML-Datei auch speichern, indem Sie einfach schreiben
+```java
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+try {
+	transcripts.saveHtmlFile(textchannel, "test.html");
+} catch (IOException e) {
+	throw new RuntimeException(e);
+}
+```
+Es gibt auch den FileUpload zurück, so dass Sie es einfach senden können
+```java
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+try {
+	FileUpload testFile = transcripts.saveHtmlFile(textchannel, "test.html");
+        textchannel.sendFiles(testFile).queue();
+} catch (IOException e) {
+	throw new RuntimeException(e);
+}
+```
+### Sie können den FileUpload auch in einen String umwandeln, indem Sie
+```java
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+try {
+	FileUpload testFile = testChannel.saveHtmlFile(textchannel, "test.html");
+        String htmlString = transcripts.fileUploadToFileContent(testFile);
 } catch (IOException e) {
 	throw new RuntimeException(e);
 }
