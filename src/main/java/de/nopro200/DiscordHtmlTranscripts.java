@@ -387,10 +387,10 @@ public class DiscordHtmlTranscripts {
         document.outputSettings().indentAmount(0).prettyPrint(true);
         document.getElementsByClass("preamble__guild-icon").first().attr("src", channel.getGuild().getIconUrl()); // set guild icon
 
-        document.getElementById("transcriptTitle").text("#" + channel.getName() + " | " + messages.size() + " Nachrichten"); // set tit
+        document.getElementById("transcriptTitle").text("#" + channel.getName() + " | " + messages.size() + " Nachrichten / Messages"); // set tit
         metaTag.attr("content", "Transcript von dem Channel " + channel.getName());
         document.getElementById("guildname").text(channel.getGuild().getName()); // set guild name
-        document.getElementById("ticketname").text("#" + channel.getName()); // set channel name
+        document.getElementById("ticketname").text("#" + channel.getName() + " | " + messages.size() + " Nachrichten / Messages"); // set channel name
 
         Element chatLog = document.getElementById("chatlog"); // chat log
         for (Message message : messages.stream().sorted(Comparator.comparing(ISnowflake::getTimeCreated)).collect(Collectors.toList())) {
