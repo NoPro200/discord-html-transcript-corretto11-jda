@@ -356,7 +356,7 @@ public class DiscordHtmlTranscripts {
         return lines.toString();
     }
 
-    public String saveHtmlFile(TextChannel textChannel, String path) {
+    public FileUpload saveHtmlFile(TextChannel textChannel, String path) {
         DiscordHtmlTranscripts transcript = DiscordHtmlTranscripts.getInstance();
         try {
             textChannel.sendFiles(transcript.createTranscript(textChannel)).queue();
@@ -364,13 +364,13 @@ public class DiscordHtmlTranscripts {
             File file = new File(path);
             if (path.toLowerCase().endsWith(".html")) {
                 FileUtils.writeStringToFile(file, transcript.fileUploadToFileContent(transcript.createTranscript(textChannel)), String.valueOf(StandardCharsets.UTF_8));
-                return "Success (Saved to \"" + path + "\")";
+                return transcript.createTranscript(textChannel);
             } else {
-                return "Err: Invaild File! It should end with .html!";
+                return null;
             }
 
         } catch (IOException e) {
-            return "Err: " + e.getMessage();
+            return null;
         }
     }
 
