@@ -362,15 +362,11 @@ public class DiscordHtmlTranscripts {
             textChannel.sendFiles(transcript.createTranscript(textChannel)).queue();
 
             File file = new File(path);
-            if (file.isDirectory()) {
-                if (path.toLowerCase().endsWith(".html")) {
-                    FileUtils.writeStringToFile(file, transcript.fileUploadToFileContent(transcript.createTranscript(textChannel)), String.valueOf(StandardCharsets.UTF_8));
-                    return "Success (Saved to \"" + path + "\")";
-                } else {
-                    return "Err: Invaild File! It should end with .html!";
-                }
+            if (path.toLowerCase().endsWith(".html")) {
+                FileUtils.writeStringToFile(file, transcript.fileUploadToFileContent(transcript.createTranscript(textChannel)), String.valueOf(StandardCharsets.UTF_8));
+                return "Success (Saved to \"" + path + "\")";
             } else {
-                return "Err: Invaild File Path!";
+                return "Err: Invaild File! It should end with .html!";
             }
 
         } catch (IOException e) {
