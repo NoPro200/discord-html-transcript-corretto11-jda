@@ -44,7 +44,7 @@ transcript.generateFromMessages(messages); // return to InputStream
 
 ### You can also put the transcript into a variable
 ```java
-DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts().getInstance();
 try {
 	testChannel.sendFiles(transcripts.getTranscript(testChannel, "test.html")).queue();
 } catch (IOException e) {
@@ -54,7 +54,7 @@ try {
 
 ### You Also can save the HTML File by simply write
 ```java
-DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts().getInstance();
 try {
 	transcripts.saveHtmlFile(textchannel, "test.html");
 } catch (IOException e) {
@@ -63,7 +63,7 @@ try {
 ```
 It also returns the FileUpload so you can easely can send it
 ```java
-DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts().getInstance();
 try {
 	FileUpload testFile = transcripts.saveHtmlFile(textchannel, "test.html");
         textchannel.sendFiles(testFile).queue();
@@ -73,7 +73,7 @@ try {
 ```
 ### You Also can convert the FileUpload in a String by
 ```java
-DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts().getInstance();
 try {
 	FileUpload testFile = testChannel.saveHtmlFile(textchannel, "test.html");
         String htmlString = transcripts.fileUploadToFileContent(testFile);
@@ -132,7 +132,7 @@ transcript.generateFromMessages(messages); // return to InputStream
 
 ### Sie können das Transkript auch in eine Variable einfügen
 ```java
-DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts().getInstance();
 try {
 	testChannel.sendFiles(transcripts.getTranscript(testChannel, "test.html")).queue();
 } catch (IOException e) {
@@ -142,7 +142,7 @@ try {
 
 ### Sie können die HTML-Datei auch speichern, indem Sie einfach schreiben
 ```java
-DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts().getInstance();
 try {
 	transcripts.saveHtmlFile(textchannel, "test.html");
 } catch (IOException e) {
@@ -151,7 +151,7 @@ try {
 ```
 Es gibt auch den FileUpload zurück, so dass Sie es einfach senden können
 ```java
-DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts().getInstance();
 try {
 	FileUpload testFile = transcripts.saveHtmlFile(textchannel, "test.html");
         textchannel.sendFiles(testFile).queue();
@@ -161,7 +161,7 @@ try {
 ```
 ### Sie können den FileUpload auch in einen String umwandeln, indem Sie
 ```java
-DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts();
+DiscordHtmlTranscripts transcripts = new DiscordHtmlTranscripts().getInstance();
 try {
 	FileUpload testFile = testChannel.saveHtmlFile(textchannel, "test.html");
         String htmlString = transcripts.fileUploadToFileContent(testFile);
