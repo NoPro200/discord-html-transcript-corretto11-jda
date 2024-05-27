@@ -62,7 +62,7 @@ public class DiscordHtmlTranscripts {
         embedFooterText.addClass("chatlog__embed-footer-text");
         embedFooterText.text(embed.getTimestamp() != null
                 ? embed.getFooter().getText() + " • " + embed.getTimestamp()
-                .format(DateTimeFormatter.ofPattern("HH:mm:ss"))
+                .format(DateTimeFormatter.ofPattern("HH:mm, dd.MM.yyyy"))
                 : embed.getFooter().getText());
 
         embedFooter.appendChild(embedFooterText);
@@ -451,8 +451,7 @@ public class DiscordHtmlTranscripts {
             // timestamp
             Element timestamp = document.createElement("span");
             timestamp.addClass("chatlog__timestamp");
-            timestamp
-                    .text(message.getTimeCreated().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+            timestamp.text(message.getTimeCreated().format(DateTimeFormatter.ofPattern("HH:mm, dd.MM.yyyy")));
 
             content.appendChild(timestamp);
 
@@ -460,7 +459,7 @@ public class DiscordHtmlTranscripts {
             messageContent.addClass("chatlog__message");
             messageContent.attr("data-message-id", message.getId());
             messageContent.attr("id", "message-" + message.getId());
-            messageContent.attr("title", "Message sent: " + message.getTimeCreated().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+            messageContent.attr("title", "Message sent: " + message.getTimeCreated().format(DateTimeFormatter.ofPattern("HH:mm, dd.MM.yyyy")));
 
             if (!message.getContentDisplay().isEmpty()) {
                 Element messageContentContent = document.createElement("div");
