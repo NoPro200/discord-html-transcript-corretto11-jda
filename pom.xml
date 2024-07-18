@@ -6,7 +6,7 @@
 
     <groupId>de.nopro200</groupId>
     <artifactId>discord-html-transcript-corretto11</artifactId>
-    <version>1.5-SNAPSHOT</version>
+    <version>1.6-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>5.0.0-alpha.20</version>
+            <version>5.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.jsoup</groupId>
